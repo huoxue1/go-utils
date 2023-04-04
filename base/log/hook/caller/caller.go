@@ -1,6 +1,6 @@
 // Package hooks
 // this file is copy from https://github.com/Lyrics-you/sail-logrus-formatter/blob/main/hooks/caller.go
-package hooks
+package caller
 
 import (
 	"fmt"

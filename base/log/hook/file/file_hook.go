@@ -2,7 +2,7 @@ package file
 
 import (
 	"fmt"
-	hooks "github.com/huoxue1/go-utils/base/log/hook"
+	hooks "github.com/huoxue1/go-utils/base/log/hook/caller"
 	"github.com/huoxue1/go-utils/help"
 	rotates "github.com/lestrrat-go/file-rotatelogs"
 	"github.com/sirupsen/logrus"
