@@ -8,19 +8,22 @@ import (
 
 type Logger struct {
 	*logrus.Logger
+
+	xormLevel   string
+	xormShowSql bool
 }
 
 func New() *Logger {
 	logger := logrus.New()
 	logger.SetOutput(&nullWriter{})
-	return &Logger{logger}
+	return &Logger{Logger: logger}
 }
 
 func NewStd() *Logger {
 	logger := logrus.New()
 	logger.SetOutput(&nullWriter{})
 	logger.AddHook(std.NewStdHook())
-	return &Logger{logger}
+	return &Logger{Logger: logger}
 }
 
 func Default() *Logger {
@@ -30,7 +33,7 @@ func Default() *Logger {
 	logger.AddHook(hook)
 	fileHook, _ := file.NewFileHook()
 	logger.AddHook(fileHook)
-	return &Logger{logger}
+	return &Logger{Logger: logger}
 }
 
 type nullWriter struct {

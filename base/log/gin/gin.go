@@ -1,11 +1,12 @@
-package log
+package gin
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/huoxue1/go-utils/base/log"
 	"time"
 )
 
-func GetGinLogHandler(logger *Logger) gin.HandlerFunc {
+func GetGinLogHandler(logger *log.Logger) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		start := time.Now()
 		path := c.Request.URL.Path

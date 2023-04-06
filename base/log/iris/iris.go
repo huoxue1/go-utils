@@ -1,11 +1,12 @@
-package log
+package iris
 
 import (
+	"github.com/huoxue1/go-utils/base/log"
 	"github.com/kataras/iris/v12/context"
 	"time"
 )
 
-func GetIsisLogHandler(logger *Logger) context.Handler {
+func GetIsisLogHandler(logger *log.Logger) context.Handler {
 	return func(ctx *context.Context) {
 		start := time.Now()
 
