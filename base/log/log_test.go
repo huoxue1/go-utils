@@ -10,7 +10,7 @@ import (
 
 func TestStdHook(t *testing.T) {
 	logger := logrus.New()
-	l := &Logger{logger}
+	l := &Logger{Logger: logger}
 	logrus.Infoln()
 	l.AddHook(std.NewStdHook())
 	l.WithField("app", "123").Infof("test")
@@ -18,7 +18,7 @@ func TestStdHook(t *testing.T) {
 
 func TestFileHook(t *testing.T) {
 	logger := logrus.New()
-	l := &Logger{logger}
+	l := &Logger{Logger: logger}
 	f, _ := os.OpenFile("test.log", os.O_RDWR|os.O_APPEND, 0666)
 	hook, _ := file.NewFileHook(file.WithCustomWriter(f))
 	l.AddHook(hook)

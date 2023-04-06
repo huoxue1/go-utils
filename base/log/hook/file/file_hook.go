@@ -27,6 +27,7 @@ func (h *Hook) Levels() []logrus.Level {
 func (h *Hook) Fire(entry *logrus.Entry) error {
 	if help.In(entry.Level, h.levels) {
 		dup := entry.Dup()
+		dup.Message = entry.Message
 		if entry.HasCaller() && entry.Caller != nil {
 			dup.Data["caller"] = fmt.Sprintf(
 				"%s:%d %s",
